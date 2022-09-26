@@ -1,6 +1,8 @@
-class MeteorDataEntry():
-    def __init__(meteor_name, id, nametype, recclass, mass, g, fall, year, reclat, reclong, GeoLocation, States, Counties):
-        meteor_name = meteor_name
+class MeteorDataEntry:
+
+    #  adding self to the parameters breaks it, leaving it like this for now
+    def __init__( name, id, nametype, recclass, mass, g, fall, year, reclat, reclong, GeoLocation, States, Counties):
+        name = name
         id = id
         nametype = nametype
         recclass = recclass
