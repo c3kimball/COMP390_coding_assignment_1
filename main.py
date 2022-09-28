@@ -26,9 +26,15 @@ if __name__ == '__main__':
                 meteor_data_class.MeteorDataEntry(line2[0], line2[1], line2[2], line2[3], line2[4], line2[5],
                                                   line2[6], line2[7], line2[8], line2[9], line2[10], line2[11]))
 
+    #  Sorting through all_meteors to look for target meteors
     for element in all_meteors:
         if meteor_data_class.MeteorDataEntry.check_mass(element):
             target_mass.append(element)
 
-    print(len(all_meteors))
-    print(len(target_mass))
+        if meteor_data_class.MeteorDataEntry.check_year(element):
+            target_year.append(element)
+
+    # Printing target_mass meteors
+    meteor_data_class.MeteorDataEntry.print_mass(target_mass)
+    # Printing target_year meteors
+    meteor_data_class.MeteorDataEntry.print_year(target_year)
