@@ -1,6 +1,31 @@
+#  Craig Kimball 9/20/2022
+
+#  Reads in meteor_data.txt and generates a cleaned list of all meteors
+def generate_meteors():
+    all_meteors = []
+    with open("meteor_data.txt", "r") as f:
+        read_all_meteors = f.readlines()
+
+    for i in range(len(read_all_meteors)):
+        line1 = read_all_meteors[i].replace("\n", "")
+        line2 = line1.split('\t')
+
+        try:
+            new_meteor = MeteorDataEntry(line2[0], line2[1], line2[2], line2[3], line2[4], line2[5], line2[6],
+                                         line2[7], line2[8], line2[9], line2[10], line2[11])
+            all_meteors.append(new_meteor)
+
+
+        except:
+            print("Defective data entry found\n")
+
+    return all_meteors
+
+
 class MeteorDataEntry:
 
-    def __init__( self, name, id, nametype, recclass, mass_g, fall, year, reclat, reclong, GeoLocation, States, Counties):
+    def __init__(self, name, id, nametype, recclass, mass_g, fall, year, reclat, reclong, GeoLocation, States,
+                 Counties):
         self.name = name
         self.id = id
         self.nametype = nametype
@@ -14,7 +39,8 @@ class MeteorDataEntry:
         self.States = States
         self.Counties = Counties
 
-    # Checks to see if a meteor is over 2,900,000g
+    #  Generates a cleaned list of all meteors from meteor_data.txt
+
     def check_mass(meteor):
         #  An error occurs when trying to cast an empty string into a float, so this first line is necessary
         if meteor.mass_g != '':
@@ -55,6 +81,3 @@ class MeteorDataEntry:
             year_label = element.year
             print(f"{name_label:<24}{year_label:<20}")
         print()
-
-
-

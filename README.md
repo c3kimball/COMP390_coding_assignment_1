@@ -1,3 +1,3 @@
-Implemented all features of MeteorDataEntry. Now I just need to work out a few kinks.
+Created by Craig Kimball 9/30/2022
 
-The biggest bug right now is only reading the latter half of meteor_data. I'm only getting ~28,000 meteors instead of the full 45,717
+Takes a list of meteors and finds which ones that are over 2,900,000g, and ones that fell in 2013 or later.
